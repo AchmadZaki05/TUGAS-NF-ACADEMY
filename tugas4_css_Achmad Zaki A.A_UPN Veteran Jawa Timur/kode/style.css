@@ -1,0 +1,120 @@
+/* Header */
+.header-banner {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.header-banner h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-47%, -47%);
+  color: white;
+  font-size: 32px;
+}
+
+/* Nav */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #004385;
+  height: 100%;
+  gap: 100px;
+  color: #ffffff; 
+}
+
+.navbar a:visited {
+  color: #ffffff;         /* warna teks link */
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #004385;
+  height: 50px;
+  gap: 20px;
+  color: #ffffff;
+}
+
+/* profil saya atau home */
+.home {
+  font-family: Arial;
+  background: #f4f6f9;
+  margin: 0;
+  text-align: center;
+  padding: 20px;
+  color: #000000;
+}
+
+
+.home h2 {
+  color: #004385;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #004385;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Halaman Study */
+.study {
+  font-family: Georgia;
+  background: #f4f6f9;
+  text-align: center;
+  padding: 20px;
+  color: #000000;
+}
+
+.study h2 {
+  color: #004385;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #004385;
+}
+
+  /* gallery */
+.foto {
+    width: 250px;
+    height: auto;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.foto:hover {
+    transform: scale(1.1);
+}
+
+ /* content kanan kiri */
+.contenrl {
+  background: #d05204;
+  color: #000000;
+  margin: 5px;
+  height: 520px;
+}
+
+.contenrl-gerak:hover {
+transform: scale(1.1);
+}
+
+/* FRAME */
+.frame {
+background-color:#004385;
+}
+
+.frame-ke2 {
+background-color:#d05204;
+}
+
+/* MAIN CONTENT */
+.main {
+    text-align: center;
+    background: #ffffff ;
+    color: #000000;
+}

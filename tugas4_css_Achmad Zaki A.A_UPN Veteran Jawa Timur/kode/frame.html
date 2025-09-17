@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Frame</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<frameset rows="20%,6%,*,6%" border="1">
+    <!-- Header -->
+    <frame class="frame" src="header.html" name="header" noresize scrolling="no">
+
+    <!-- Navigation Menu -->
+    <frame class="frame" src="nav.html" name="menu" noresize scrolling="no">
+
+    <!-- Main Content -->
+    <frameset cols="20%,50%,20%">
+        <frame class="frame-ke2" src="contentleft.html" name="left" noresize>
+        <frame src="maincontent.html" name="maincontent">
+        <frame class="frame-ke2" src="contentright.html" name="right" noresize>
+    </frameset>
+
+    <!-- Footer -->
+    <frame class="frame" src="footer.html" name="footer" noresize scrolling="no">
+</frameset>
+</html>
