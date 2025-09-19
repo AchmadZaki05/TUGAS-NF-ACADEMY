@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tugas 2 javascript</title>
+    <style>
+    /* CSS Internal */
+    table {
+      border-collapse: collapse; /* Gabungkan border jadi satu garis (tidak dobel) */
+      width: 70%;               /* Lebar tabel 70% dari layar */
+      margin: 20px auto;        /* Beri jarak 20px atas-bawah, auto kiri-kanan (tabel ditengah) */
+    }
+
+    /* Atur gaya untuk semua sel header (th) dan isi (td) */
+    th, td {
+      border: 1px solid black;  /* Beri border hitam tipis di setiap sel */
+      padding: 8px;             /* Jarak antara teks dengan border (biar tidak mepet) */
+      text-align: center;       /* Posisi teks di dalam sel rata tengah */
+    }
+
+    /* Gaya khusus untuk header tabel */
+    thead {
+      background-color: #f2f2f2; /* Warna abu-abu muda di bagian kepala tabel */
+    }
+
+    /* Gaya khusus untuk footer tabel */
+    tfoot {
+      background-color: #d9f7d9; /* Warna hijau muda di bagian kaki tabel */
+      font-weight: bold;         /* Tulisan dibuat tebal (bold) */
+    }
+    </style>
+</head>
+<body>
+
+<script>
+  // Data Pegawai
+  let nama = "Achmad Zaki";
+  let umur = 20;
+  let jabatan = "manajer";
+  let status = "menikah";
+
+  // Hitung gaji pokok berdasarkan jabatan
+  let gapok;
+  if (jabatan === "manajer") {
+    gapok = 15000000;
+  } else if (jabatan === "asisten manajer") {
+    gapok = 10000000;
+  } 
+  else if (jabatan === "staff") {
+    gapok = 5000000;
+  }
+  else {
+    gapok = 0;
+  }
+
+  // Tunjangan Jabatan 15%
+  let tunjanganJabatan = 0.15 * gapok;
+
+  // BPJS 10%
+  let bpjs = 0.10 * gapok;
+
+  // Tunjangan Keluarga 20% jika menikah
+  let tunjanganKeluarga = (status === "menikah") ? 0.20 * gapok : 0;
+
+  // Total Gaji
+  let total = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+  // Cetak tabel dengan document.write
+  document.write("<h2 style='text-align:center;'>Data Pegawai</h2>");
+  document.write("<table>");
+  document.write("<thead>");
+  document.write(
+  "<tr>" +
+    "<th>Nama Pegawai</th>" +
+    "<th>Umur</th>" +
+    "<th>Jabatan</th>" +
+    "<th>Status</th>" +
+    "<th>Gaji Pokok</th>" +
+    "<th>Tunjangan Jabatan</th>" +
+    "<th>BPJS</th>" +
+    "<th>Tunjangan Keluarga</th>" +
+  "</tr>"
+);
+  document.write("</thead>");
+  document.write("<tbody>");
+  document.write("<tr>");
+  document.write("<td>" + nama + "</td>");
+  document.write("<td>" + umur + "</td>");
+  document.write("<td>" + jabatan + "</td>");
+  document.write("<td>" + status + "</td>");
+  document.write("<td>Rp " + gapok.toLocaleString("id-ID") + "</td>");
+  document.write("<td>Rp " + tunjanganJabatan.toLocaleString("id-ID") + "</td>");
+  document.write("<td>Rp " + bpjs.toLocaleString("id-ID") + "</td>");
+  document.write("<td>Rp " + tunjanganKeluarga.toLocaleString("id-ID") + "</td>");
+  document.write("</tr>");
+  document.write("</tbody>");
+  document.write("<tfoot>");
+  document.write("<tr><td colspan='8'>Total Gaji: Rp " + total.toLocaleString("id-ID") + "</td></tr>");
+  document.write("</tfoot>");
+  document.write("</table>");
+</script>
+
+</body>
+</html>
