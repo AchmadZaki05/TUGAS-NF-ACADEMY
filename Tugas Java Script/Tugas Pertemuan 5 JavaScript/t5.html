@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Produk</title>
+</head>
+<body style="text-align: center; font-family: Arial, sans-serif;"> <!-- CSS inline biar teks di tengah -->
+
+  <h2>Manajemen Produk Toko Online</h2>
+
+  <!-- Input tambah produk -->
+  <input type="text" id="namaProduk" placeholder="Nama Produk"> <!-- kolom input nama produk -->
+  <button id="btnTambah">Tambah Produk</button> <!-- tombol untuk tambah produk -->
+  <br><br>
+
+  <!-- Input hapus produk -->
+  <input type="text" id="hapusProduk" placeholder="Nama Produk yang dihapus"> <!-- kolom input hapus -->
+  <button id="btnHapus">Hapus Produk</button> <!-- tombol hapus produk -->
+
+  <h3>Daftar Produk:</h3>
+  <ul id="listProduk" style="list-style: none; padding: 0;"></ul> <!-- tempat menampilkan daftar produk -->
+
+  <script>
+    let produk = ["Laptop", "HP", "Headset", "Mouse", "Keyboard"]; // daftar produk awal
+
+    function tampilkanProduk() { // fungsi untuk menampilkan produk
+      const list = document.getElementById("listProduk"); // ambil elemen <ul>
+      list.innerHTML = ""; // kosongkan dulu supaya tidak dobel
+      produk.forEach((p) => { // looping semua produk
+        const li = document.createElement("li"); // buat elemen <li>
+        li.textContent = p; // isi teks dengan nama produk
+        list.appendChild(li); // masukkan <li> ke <ul>
+      });
+    }
+
+    function tambahProduk(...items) { // fungsi tambah produk pakai rest parameter
+      produk = [...produk, ...items]; // spread operator untuk gabung produk lama + baru
+      tampilkanProduk(); // panggil ulang untuk refresh tampilan
+    }
+
+    function hapusProduk(nama) { // fungsi hapus produk berdasarkan nama
+      produk = produk.filter(p => p !== nama); // filter, buang yang sesuai nama
+      tampilkanProduk(); // refresh tampilan
+    }
+
+    document.getElementById("btnTambah").addEventListener("click", () => { // event listener tombol tambah
+      const input = document.getElementById("namaProduk"); // ambil input
+      const { value } = input; // destructuring untuk ambil value
+      if (value) { // cek kalau ada isinya
+        tambahProduk(value); // jalankan tambah produk
+        input.value = ""; // kosongkan input lagi
+      } else {
+        alert("Masukkan nama produk dulu!"); // pesan kalau kosong
+      }
+    });
+
+    document.getElementById("btnHapus").addEventListener("click", () => { // event listener tombol hapus
+      const input = document.getElementById("hapusProduk"); // ambil input
+      const { value } = input; // destructuring untuk ambil value
+      if (value) { // cek kalau ada isinya
+        hapusProduk(value); // jalankan hapus produk
+        input.value = ""; // kosongkan input lagi
+      } else {
+        alert("Masukkan dulu produk yang ingin dihapus!"); // pesan kalau kosong
+      }
+    });
+
+    tampilkanProduk(); // tampilkan produk pertama kali
+  </script>
+</body>
+</html>
